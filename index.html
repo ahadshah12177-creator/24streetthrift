@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24 Street Thrift</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#0b0b0b;
+  color:white;
+}
+header{
+  padding:25px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#111,#292929);
+}
+header h1{font-size:32px}
+header p{color:#aaa;margin-top:8px}
+
+.hero{
+  padding:55px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#171717,#050505);
+}
+.hero h2{font-size:38px;margin-bottom:12px}
+.hero p{color:#bbb;margin-bottom:22px}
+
+.products{
+  padding:30px 15px;
+}
+.products h2{
+  text-align:center;
+  margin-bottom:25px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+.card{
+  background:#171717;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 20px #000;
+}
+.card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+.card .info{padding:12px}
+.card h3{font-size:17px;margin-bottom:7px}
+.price{font-weight:bold;font-size:18px}
+button{
+  width:100%;
+  margin-top:10px;
+  padding:11px;
+  border:0;
+  border-radius:8px;
+  background:white;
+  color:black;
+  font-weight:bold;
+}
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#888;
+}
+
+@media(max-width:500px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>24 STREET THRIFT</h1>
+  <p>Streetwear • Oversized • Baggy • Trendy</p>
+</header>
+
+<section class="hero">
+  <h2>WEAR YOUR VIBE.</h2>
+  <p>Discover your next streetwear fit.</p>
+</section>
+
+<section class="products">
+  <h2>🔥 Latest Collection</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80">
+      <div class="info">
+        <h3>Oversized Street T-Shirt</h3>
+        <div class="price">₹499</div>
+        <button onclick="order('Oversized Street T-Shirt')">ORDER</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80">
+      <div class="info">
+        <h3>Baggy Street Jeans</h3>
+        <div class="price">₹899</div>
+        <button onclick="order('Baggy Street Jeans')">ORDER</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=600&q=80">
+      <div class="info">
+        <h3>Streetwear Collection</h3>
+        <div class="price">₹699</div>
+        <button onclick="order('Streetwear Collection')">ORDER</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80">
+      <div class="info">
+        <h3>Trending Fit</h3>
+        <div class="price">₹799</div>
+        <button onclick="order('Trending Fit')">ORDER</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 24 Street Thrift
+</footer>
+
+<script>
+function order(product){
+  let message = "Hi 24 Street Thrift! I want to order: " + product;
+  window.open("https://wa.me/?text=" + encodeURIComponent(message), "_blank");
+}
+</script>
+
+</body>
+</html>
