@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>24 Street Thrift</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#050505;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* NAVBAR */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(5,5,5,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #292929;
+}
+
+.nav{
+  max-width:1250px;
+  margin:auto;
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+.logo span{
+  color:#777;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  font-size:13px;
+  font-weight:bold;
+  color:#ddd;
+}
+
+.nav-links a:hover{
+  color:#777;
+}
+
+/* HERO */
+
+.hero{
+  min-height:680px;
+  max-width:1400px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:45% 55%;
+  overflow:hidden;
+
+  background:#0b0b0b;
+  border-bottom:1px solid #292929;
+}
+
+.hero-content{
+  padding:100px 45px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+  z-index:2;
+}
+
+.hero-small{
+  color:#888;
+  font-size:12px;
+  letter-spacing:4px;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(55px,8vw,105px);
+  line-height:.78;
+  letter-spacing:-6px;
+  font-weight:1000;
+}
+
+.hero h1 span{
+  color:#777;
+}
+
+.hero-text{
+  color:#999;
+  line-height:1.7;
+  margin-top:25px;
+  max-width:480px;
+}
+
+.shop-btn{
+  width:max-content;
+  margin-top:30px;
+  padding:15px 28px;
+  background:#fff;
+  color:#000;
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.shop-btn:hover{
+  background:#aaa;
+}
+
+.hero-photo{
+  position:relative;
+  min-height:680px;
+  overflow:hidden;
+}
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+}
+
+.hero-photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    #0b0b0b 0%,
+    transparent 30%,
+    rgba(0,0,0,.1)
+  );
+}
+
+/* SECTION */
+
+.section{
+  max-width:1250px;
+  margin:auto;
+  padding:80px 22px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:35px;
+}
+
+.section-head h2{
+  font-size:42px;
+  font-weight:1000;
+  letter-spacing:-2px;
+}
+
+.section-head h2 span{
+  color:#777;
+}
+
+.section-head small{
+  color:#777;
+  letter-spacing:2px;
+}
+
+/* CATEGORIES */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:15px;
+}
+
+.category{
+  text-align:center;
+}
+
+.category-img{
+  height:155px;
+  border-radius:50%;
+  border:1px solid #444;
+  background:radial-gradient(circle,#292929,#0b0b0b);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.category:hover .category-img{
+  transform:scale(1.05);
+  border-color:#aaa;
+}
+
+.category-icon{
+  font-size:38px;
+  color:#aaa;
+}
+
+.category h3{
+  font-size:13px;
+  margin-top:15px;
+  letter-spacing:1px;
+}
+
+.category p{
+  color:#666;
+  font-size:11px;
+  margin-top:6px;
+}
+
+/* PRODUCTS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:#0e0e0e;
+  border:1px solid #292929;
+  overflow:hidden;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#555;
+}
+
+.product-img{
+  height:400px;
+  background:#171717;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.coming{
+  color:#555;
+  font-size:11px;
+  letter-spacing:3px;
+}
+
+.product-info{
+  padding:20px;
+}
+
+.product-info h3{
+  font-size:18px;
+  margin-bottom:9px;
+}
+
+.price{
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.order{
+  display:block;
+  text-align:center;
+  border:1px solid #555;
+  padding:13px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.order:hover{
+  background:#fff;
+  color:#000;
+}
+
+/* COLLECTION */
+
+.collection{
+  margin-top:30px;
+  min-height:270px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:45px;
+  background:
+    linear-gradient(90deg,#161616,#080808);
+  border:1px solid #292929;
+}
+
+.collection small{
+  color:#777;
+  letter-spacing:4px;
+}
+
+.collection h2{
+  font-size:clamp(35px,6vw,70px);
+  line-height:.9;
+  margin-top:15px;
+}
+
+.collection-btn{
+  background:#fff;
+  color:#000;
+  padding:15px 25px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* BENEFITS */
+
+.benefits{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid #292929;
+  border-bottom:1px solid #292929;
+}
+
+.benefit{
+  padding:30px 20px;
+  border-right:1px solid #292929;
+}
+
+.benefit:last-child{
+  border-right:0;
+}
+
+.benefit-icon{
+  font-size:25px;
+  color:#aaa;
+}
+
+.benefit h3{
+  margin:15px 0 8px;
+  font-size:14px;
+}
+
+.benefit p{
+  color:#777;
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* ABOUT */
+
+.about{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:430px;
+  background:#101010;
+  border:1px solid #292929;
+}
+
+.about-photo{
+  overflow:hidden;
+}
+
+.about-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+}
+
+.about-content{
+  padding:55px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.about-label{
+  color:#777;
+  font-size:11px;
+  letter-spacing:3px;
+}
+
+.about-content h2{
+  font-size:48px;
+  line-height:.9;
+  margin:20px 0;
+}
+
+.about-content h2 span{
+  color:#777;
+}
+
+.about-content p{
+  color:#999;
+  line-height:1.8;
+  max-width:450px;
+}
+
+/* FOOTER */
+
+footer{
+  margin-top:80px;
+  padding:55px 22px 25px;
+  border-top:1px solid #292929;
+}
+
+.footer-inner{
+  max-width:1250px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-logo{
+  font-size:24px;
+  font-weight:1000;
+}
+
+.footer-logo span{
+  color:#777;
+}
+
+.footer p{
+  color:#666;
+  font-size:12px;
+  line-height:1.7;
+  margin-top:12px;
+}
+
+.footer h3{
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.footer a{
+  display:block;
+  color:#777;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.copyright{
+  max-width:1250px;
+  margin:45px auto 0;
+  padding-top:20px;
+  border-top:1px solid #222;
+  color:#555;
+  font-size:11px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-content{
+    padding:70px 25px 45px;
+  }
+
+  .hero-photo{
+    height:500px;
+    min-height:500px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .benefits{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .benefit:nth-child(2){
+    border-right:0;
+  }
+
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .about-photo{
+    height:450px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .nav{
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:65px;
+  }
+
+  .hero-photo{
+    height:430px;
+    min-height:430px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .category-img{
+    height:135px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .product-img{
+    height:420px;
+  }
+
+  .collection{
+    display:block;
+    padding:40px 25px;
+  }
+
+  .collection-btn{
+    display:inline-block;
+    margin-top:25px;
+  }
+
+  .benefits{
+    grid-template-columns:1fr;
+  }
+
+  .benefit{
+    border-right:0;
+    border-bottom:1px solid #292929;
+  }
+
+  .about-content{
+    padding:35px 25px;
+  }
+
+  .about-content h2{
+    font-size:40px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+  <div class="nav">
+
+    <div class="logo">
+      24 <span>STREET THRIFT</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#shop">SHOP</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      PREMIUM STREETWEAR COLLECTION
+    </div>
+
+    <h1>
+      24<br>
+      <span>STREET</span><br>
+      THRIFT
+    </h1>
+
+    <p class="hero-text">
+      Trendy outfits, oversized fits, jerseys, denim
+      and modern streetwear for your everyday style.
+    </p>
+
+    <a href="#shop" class="shop-btn">
+      SHOP NOW →
+    </a>
+
+  </div>
+
+
+  <div class="hero-photo">
+    <img src="founder.png" alt="24 Street Thrift">
+  </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section">
+
+  <div class="section-head">
+    <h2>SHOP BY <span>CATEGORY</span></h2>
+    <small>EXPLORE COLLECTION →</small>
+  </div>
+
+  <div class="categories">
+
+    <div class="category">
+      <div class="category-img">
+        <div class="category-icon">T</div>
+      </div>
+      <h3>T-SHIRTS</h3>
+      <p>Explore Now →</p>
+    </div>
+
+    <div class="category">
+      <div class="category-img">
+        <div class="category-icon">H</div>
+      </div>
+      <h3>HOODIES</h3>
+      <p>Explore Now →</p>
+    </div>
+
+    <div class="category">
+      <div class="category-img">
+        <div class="category-icon">J</div>
+      </div>
+      <h3>JERSEYS</h3>
+      <p>Explore Now →</p>
+    </div>
+
+    <div class="category">
+      <div class="category-img">
+        <div class="category-icon">D</div>
+      </div>
+      <h3>JEANS</h3>
+      <p>Explore Now →</p>
+    </div>
+
+    <div class="category">
+      <div class="category-img">
+        <div class="category-icon">J</div>
+      </div>
+      <h3>JACKETS</h3>
+      <p>Explore Now →</p>
+    </div>
+
+    <div class="category">
+      <div class="category-img">
+        <div class="category-icon">A</div>
+      </div>
+      <h3>ACCESSORIES</h3>
+      <p>Explore Now →</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="section" id="shop">
+
+  <div class="section-head">
+    <h2>FEATURED <span>PRODUCTS</span></h2>
+    <small>VIEW ALL PRODUCTS →</small>
+  </div>
+
+  <div class="products">
+
+
+    <!-- PRODUCT 1 -->
+
+    <div class="card">
+
+      <div class="product-img">
+        <img src="product1.png" alt="Wide Leg Denim Jeans">
+      </div>
+
+      <div class="product-info">
+
+        <h3>Wide Leg Denim Jeans</h3>
+
+        <div class="price">
+          ₹700
+        </div>
+
+        <a
+          class="order"
+          href="javascript:alert('WhatsApp ordering will be connected soon!')">
+          ORDER NOW
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT 2 -->
+
+    <div class="card">
+
+      <div class="product-img">
+        <div class="coming">COMING SOON</div>
+      </div>
+
+      <div class="product-info">
+
+        <h3>Streetwear T-Shirt</h3>
+
+        <div class="price">
+          ₹---
+        </div>
+
+        <a class="order" href="#shop">
+          COMING SOON
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT 3 -->
+
+    <div class="card">
+
+      <div class="product-img">
+        <div class="coming">COMING SOON</div>
+      </div>
+
+      <div class="product-info">
+
+        <h3>Oversized Jersey</h3>
+
+        <div class="price">
+          ₹---
+        </div>
+
+        <a class="order" href="#shop">
+          COMING SOON
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT 4 -->
+
+    <div class="card">
+
+      <div class="product-img">
+        <div class="coming">COMING SOON</div>
+      </div>
+
+      <div class="product-info">
+
+        <h3>Street Jacket</h3>
+
+        <div class="price">
+          ₹---
+        </div>
+
+        <a class="order" href="#shop">
+          COMING SOON
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT 5 -->
+
+    <div class="card">
+
+      <div class="product-img">
+        <div class="coming">COMING SOON</div>
+      </div>
+
+      <div class="product-info">
+
+        <h3>Baggy Denim</h3>
+
+        <div class="price">
+          ₹---
+        </div>
+
+        <a class="order" href="#shop">
+          COMING SOON
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- COLLECTION BANNER -->
+
+  <div class="collection">
+
+    <div>
+      <small>24 STREET THRIFT</small>
+
+      <h2>
+        NEW COLLECTION<br>
+        JUST DROPPED.
+      </h2>
+    </div>
+
+    <a href="#shop" class="collection-btn">
+      SHOP NOW →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- BENEFITS -->
+
+<section class="section">
+
+  <div class="benefits">
+
+    <div class="benefit">
+      <div class="benefit-icon">✦</div>
+      <h3>PREMIUM STYLE</h3>
+      <p>Fresh modern streetwear pieces.</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">◇</div>
+      <h3>LIMITED DROPS</h3>
+      <p>Unique pieces and fresh collections.</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">↻</div>
+      <h3>EASY ORDER</h3>
+      <p>Simple ordering through our store.</p>
+    </div>
+
+    <div class="benefit">
+      <div class="benefit-icon">♡</div>
+      <h3>STREET CULTURE</h3>
+      <p>Made for modern everyday style.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT / FOUNDER -->
+
+<section class="section" id="about">
+
+  <div class="about">
+
+    <div class="about-photo">
+      <img src="founder.png" alt="24 Street Thrift Founder">
+    </div>
+
+    <div class="about-content">
+
+      <div class="about-label">
+        ABOUT 24 STREET THRIFT
+      </div>
+
+      <h2>
+        MORE THAN<br>
+        <span>JUST CLOTHING.</span>
+      </h2>
+
+      <p>
+        24 Street Thrift is a modern streetwear store
+        focused on unique fashion, relaxed fits and
+        everyday street style.
+      </p>
+
+      <a href="#shop" class="shop-btn">
+        EXPLORE STORE →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+  <div class="footer-inner">
+
+    <div>
+      <div class="footer-logo">
+        24 <span>STREET THRIFT</span>
+      </div>
+
+      <p>
+        Your style. Your identity.
+      </p>
+    </div>
+
+
+    <div>
+      <h3>QUICK LINKS</h3>
+
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+
+    <div>
+      <h3>CATEGORIES</h3>
+
+      <a href="#shop">T-Shirts</a>
+      <a href="#shop">Hoodies</a>
+      <a href="#shop">Jerseys</a>
+      <a href="#shop">Jeans</a>
+    </div>
+
+
+    <div>
+      <h3>24 STREET</h3>
+
+      <p>
+        New drops, fresh styles
+        and modern streetwear.
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+    © 2026 24 Street Thrift. All Rights Reserved.
+  </div>
+
+</footer>
+
+</body>
+</html>
